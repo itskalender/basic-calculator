@@ -1,0 +1,76 @@
+* {
+  box-sizing        : border-box;
+}
+
+body {
+  height            : 100vh;
+  margin            : 0;
+  display           : flex;
+  justify-content   : center;
+  align-items       : center;
+
+  color             : white;
+}
+
+.calculator {
+  width             : 400px;
+
+  background-color  : black;
+}
+
+.result {
+  padding           : 35px;
+  text-align        : right;
+
+  font-family       : 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size         : 25px ;
+}
+
+.calculations {
+  font-family       :'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculations-row {
+  display           : flex;
+  align-items       : center;
+}
+
+.calculations-row__item {
+  width             : 25%;
+  padding           : 30px ;
+  text-align        : center;
+  
+  font-size         : 25px;
+  border            : 1px solid black ;
+  background-color  : rgb(158, 158, 158);
+}
+
+.calculations-row__item:hover {
+  background-color  : rgb(126, 126, 126);
+  cursor            : pointer;
+}
+
+.calculations-row__item:last-child {
+  background-color  : rgb(219, 110, 70);
+}
+
+.calculations-row__item:last-child:hover {
+  background-color  : rgb(219, 147, 121);
+}
+
+.calculations-row:last-of-type :last-child {
+  background-color  : rgb(158, 158, 158);
+}
+
+.calculations-row:last-of-type :last-child:hover {
+  background-color  : rgb(126, 126, 126);
+}
+
+.half {
+  width             : 50%;
+}
+
+.three-quarter {
+  width             : 75%;
+}
+
