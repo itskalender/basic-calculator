@@ -6,7 +6,7 @@ let operand2      = 0;
 let operator;
 
 const calculator  = document.querySelector('.calculator');
-const screenEl    = document.querySelector('.result');
+const screenEl    = document.querySelector('.screen');
 
 calculator.addEventListener('click', calculate);
 
@@ -31,11 +31,11 @@ function calculate(e) {
         updateFirstOperandAndOperator('*');
         resetScreen();
         break;
-      case '/':
-        updateFirstOperandAndOperator('/');
+      case '÷':
+        updateFirstOperandAndOperator('÷');
         resetScreen();
         break;
-      case 'DEL':
+      case '←':
         deleteLastDigit();
         break;
       case '=':
@@ -50,7 +50,7 @@ function calculate(e) {
           case '*':
             result = operand1 * operand2;
             break;
-          case '/':
+          case '÷':
             result = operand1 / operand2;
             break;
         }
