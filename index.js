@@ -54,7 +54,7 @@ function calculate(e) {
             result = operand1 / operand2;
             break;
         }
-        screenEl.innerText = `${result}`;
+        screenEl.innerText = result;
         operand1 = 0;
         operand2 = 0;
         break;
@@ -83,7 +83,7 @@ const deleteLastDigit = () => {
   const currentScreenVal  = screenEl.innerText;
   const newScreenStrVal   = currentScreenVal.slice(0, -1);
   if (newScreenStrVal.length === 0) {
-    screenEl.innerText = '0';
+    resetScreen();
     return;
   }
   screenEl.innerText = newScreenStrVal;
