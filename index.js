@@ -55,8 +55,7 @@ function calculate(e) {
             break;
         }
         screenEl.innerText = result;
-        operand1 = 0;
-        operand2 = 0;
+        resetOperands();
         break;
       case 'C':
         resetCalculator();
@@ -79,7 +78,7 @@ function resetScreen() {
   screenEl.innerText = '0';
 }
 
-const deleteLastDigit = () => {
+function deleteLastDigit() {
   const currentScreenVal  = screenEl.innerText;
   const newScreenStrVal   = currentScreenVal.slice(0, -1);
   if (newScreenStrVal.length === 0) {
@@ -87,6 +86,11 @@ const deleteLastDigit = () => {
     return;
   }
   screenEl.innerText = newScreenStrVal;
+}
+
+function resetOperands() {
+  operand1 = 0;
+  operand2 = 0;
 }
 
 function resetCalculator() {
