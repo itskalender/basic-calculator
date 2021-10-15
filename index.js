@@ -11,32 +11,32 @@ const screenEl    = document.querySelector('.result');
 calculator.addEventListener('click', calculate);
 
 function calculate(e) {
-  const targetStr = e.target.innerText;
-  const targetNum = parseInt(targetStr);
+  const targetStr       = e.target.innerText;
+  const targetNum       = parseInt(targetStr);
+  const isTargetInvalid = Number.isNaN(targetNum);
 
-  if (!Number.isNaN(targetNum)) {
+  if (!isTargetInvalid) {
       insertToScreen(targetStr);
   } else {
     switch (targetStr) {
       case '+':
-        operand1  = parseInt(screenEl.innerText);
-        operator  = '+'
+        updateFirstOperandAndOperator('+');
         resetScreen();
         break;
       case '-':
-        operand1  = parseInt(screenEl.innerText);
-        operator  = '-'
+        updateFirstOperandAndOperator('-');
         resetScreen();
         break;
       case '*':
-        operand1  = parseInt(screenEl.innerText);
-        operator  = '*'
+        updateFirstOperandAndOperator('*');
         resetScreen();
         break;
       case '/':
-        operand1  = parseInt(screenEl.innerText);
-        operator  = '/'
+        updateFirstOperandAndOperator('/');
         resetScreen();
+        break;
+      case 'DEL':
+        deleteLastDigit();
         break;
       case '=':
         operand2 = parseInt(screenEl.innerText);
@@ -65,12 +65,28 @@ function calculate(e) {
   }
 }
 
-function clearScreen() {
-  screenEl.innerText = '';
+function insertToScreen(value) {
+  const newScreenStrVal = screenEl.innerText + value;
+  screenEl.innerText    = parseInt(newScreenStrVal);
+}
+
+function updateFirstOperandAndOperator(newOperator) {
+  operand1  = parseInt(screenEl.innerText);
+  operator  = newOperator;
 }
 
 function resetScreen() {
   screenEl.innerText = '0';
+}
+
+const deleteLastDigit = () => {
+  const currentScreenVal  = screenEl.innerText;
+  const newScreenStrVal   = currentScreenVal.slice(0, -1);
+  if (newScreenStrVal.length === 0) {
+    screenEl.innerText = '0';
+    return;
+  }
+  screenEl.innerText = newScreenStrVal;
 }
 
 function resetCalculator() {
@@ -78,9 +94,4 @@ function resetCalculator() {
   operand1  = 0;
   operand2  = 0;
   result    = 0;
-}
-
-function insertToScreen(value) {
-  const newScreenValue  = parseInt(screenEl.innerText) + parseInt(value);
-  screenEl.innerText    = newScreenValue.toString();
 }

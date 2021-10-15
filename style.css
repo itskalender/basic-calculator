@@ -15,19 +15,15 @@ body {
 .calculator {
   width             : 400px;
 
+  font-family       :'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color  : black;
 }
 
 .result {
-  padding           : 35px;
+  padding           : 30px 20px;
   text-align        : right;
 
-  font-family       : 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size         : 25px ;
-}
-
-.calculations {
-  font-family       :'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size         : 40px ;
 }
 
 .calculations-row {
