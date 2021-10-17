@@ -27,8 +27,8 @@ function calculate(e) {
         updateFirstOperandAndOperator('-');
         resetScreen();
         break;
-      case '*':
-        updateFirstOperandAndOperator('*');
+      case '×':
+        updateFirstOperandAndOperator('×');
         resetScreen();
         break;
       case '÷':
@@ -47,7 +47,7 @@ function calculate(e) {
           case '-':
             result = operand1 - operand2;
             break;
-          case '*':
+          case '×':
             result = operand1 * operand2;
             break;
           case '÷':
@@ -55,7 +55,7 @@ function calculate(e) {
             break;
         }
         screenEl.innerText = result;
-        resetOperands();
+        resetPrevOperandsAndResult();
         break;
       case 'C':
         resetCalculator();
@@ -88,9 +88,10 @@ function deleteLastDigit() {
   screenEl.innerText = newScreenStrVal;
 }
 
-function resetOperands() {
-  operand1 = 0;
-  operand2 = 0;
+function resetPrevOperandsAndResult() {
+  operand1  = 0;
+  operand2  = 0;
+  result    = 0;
 }
 
 function resetCalculator() {
